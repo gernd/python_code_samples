@@ -51,12 +51,12 @@ print('a after attempt to change it ' + a)
 
 # dicts, list and custom objects can be changed using their mutators
 
-def change_my_val_to_dict(param_to_change):
+def change_my_dict(param_to_change):
     """Adds another key to the given dictionary"""
     param_to_change['key_from_method'] = 'value_from_method'
 
 b = dict()
 b['myKey'] = 'myVal'
 print('b before attempt to change it ' + str(b))
-change_my_val_to_dict(b)
+change_my_dict(b)
 print('b after attempt to change it ' + str(b))
