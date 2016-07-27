@@ -60,3 +60,5 @@ b['myKey'] = 'myVal'
 print('b before attempt to change it ' + str(b))
 change_my_dict(b)
 print('b after attempt to change it ' + str(b))
+
+# TODO: method that tries to assign a completetly new dict to given parameter
