@@ -36,7 +36,6 @@ print(my_function.__doc__) # print the function's documentation
 
 # in general function parameters are passed by object-reference
 
-
 # this does not work with primitive types likes strings and ints, as there are immutable
 # in this case new objects are created dynamically
 
@@ -47,6 +46,8 @@ def change_string(param_to_change):
 a = "hallo"
 print('a before attempt to change it ' + a)
 change_string(a)
+
+# still prints "hallo"
 print('a after attempt to change it ' + a)
 
 # dicts, list and custom objects can be changed using their mutators
@@ -61,4 +62,17 @@ print('b before attempt to change it ' + str(b))
 change_my_dict(b)
 print('b after attempt to change it ' + str(b))
 
-# TODO: method that tries to assign a completetly new dict to given parameter
+# it is not possible to assign a new instance to an argument passed into a method
+
+
+def assign_new_dict(dictionary):
+    """Tries to assign a new (empty) dict to the variable that is given as parameter"""
+    dictionary = dict()
+
+c = dict()
+c['colour'] = 'yellow'
+
+assign_new_dict(c)
+
+# still prints yellow
+print(c['colour'])
