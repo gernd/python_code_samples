@@ -76,3 +76,22 @@ assign_new_dict(c)
 
 # still prints yellow
 print(c['colour'])
+
+
+# function annotations
+# https://www.python.org/dev/peps/pep-3107/
+# https://docs.python.org/3/reference/compound_stmts.html#function
+
+# arbitrary python expressions can be associated with various parts of a function at compile time
+# this does not change the semantics of a function
+# can be used for third party libraries (e.g. typechecking)
+
+
+def my_annotated_function(a : "string", b : "int") -> "something_else":
+    pass # does nothing
+
+
+print('Annotations of my function: ' + str(my_annotated_function.__annotations__))
+
+
+
