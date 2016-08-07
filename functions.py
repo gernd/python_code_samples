@@ -63,8 +63,6 @@ change_my_dict(b)
 print('b after attempt to change it ' + str(b))
 
 # it is not possible to assign a new instance to an argument passed into a method
-
-
 def assign_new_dict(dictionary):
     """Tries to assign a new (empty) dict to the variable that is given as parameter"""
     dictionary = dict()
@@ -90,8 +88,11 @@ print(c['colour'])
 def my_annotated_function(a : "string", b : "int") -> "something_else":
     pass # does nothing
 
-
 print('Annotations of my function: ' + str(my_annotated_function.__annotations__))
 
-
-
+# lambdas
+# a simple add function in curried form
+add = lambda x : lambda y : x + y
+add_5 = add(5)
+add_5_8 = add_5(8)
+print(add_5_8)
