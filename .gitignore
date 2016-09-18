@@ -91,3 +91,6 @@ ENV/
 # idea
 .idea
 *.iml
+
+# vim
+*.swp
