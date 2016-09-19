@@ -36,7 +36,6 @@ print(my_function.__doc__) # print the function's documentation
 
 # in general function parameters are passed by object-reference
 
-
 # this does not work with primitive types likes strings and ints, as there are immutable
 # in this case new objects are created dynamically
 
@@ -47,6 +46,8 @@ def change_string(param_to_change):
 a = "hallo"
 print('a before attempt to change it ' + a)
 change_string(a)
+
+# still prints "hallo"
 print('a after attempt to change it ' + a)
 
 # dicts, list and custom objects can be changed using their mutators
@@ -61,4 +62,37 @@ print('b before attempt to change it ' + str(b))
 change_my_dict(b)
 print('b after attempt to change it ' + str(b))
 
-# TODO: method that tries to assign a completetly new dict to given parameter
+# it is not possible to assign a new instance to an argument passed into a method
+def assign_new_dict(dictionary):
+    """Tries to assign a new (empty) dict to the variable that is given as parameter"""
+    dictionary = dict()
+
+c = dict()
+c['colour'] = 'yellow'
+
+assign_new_dict(c)
+
+# still prints yellow
+print(c['colour'])
+
+
+# function annotations
+# https://www.python.org/dev/peps/pep-3107/
+# https://docs.python.org/3/reference/compound_stmts.html#function
+
+# arbitrary python expressions can be associated with various parts of a function at compile time
+# this does not change the semantics of a function
+# can be used for third party libraries (e.g. typechecking)
+
+
+def my_annotated_function(a : "string", b : "int") -> "something_else":
+    pass # does nothing
+
+print('Annotations of my function: ' + str(my_annotated_function.__annotations__))
+
+# lambdas
+# a simple add function in curried form
+add = lambda x : lambda y : x + y
+add_5 = add(5)
+add_5_8 = add_5(8)
+print(add_5_8)
